@@ -6,4 +6,4 @@ def index(request):
 
 
 def categories(request):
-    return HttpResponse("Страница категории")
+    return HttpResponse("Страница категории 2")
