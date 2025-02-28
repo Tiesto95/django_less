@@ -10,3 +10,4 @@ urlpatterns = [
     path('cats/<str:ind_cat>/', views.categories),
     path('arhive/<year4:year>/', views.arhive)
 ]
+
