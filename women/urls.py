@@ -7,7 +7,7 @@ register_converter(converters.FourDigitYearConverter, 'year4')
 urlpatterns = [
     path('', views.index),
     path('cats/<int:ind_cat>/', views.categories),
-    path('cats/<str:ind_cat>/', views.categories),
+    path('cats/<str:ind_cat>/', views.categories, name='cat_str'),
     path('arhive/<year4:year>/', views.arhive)
 ]
 

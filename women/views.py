@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseNotFound, Http404
 
 
 
@@ -12,6 +12,8 @@ def categories(request, ind_cat):
     return HttpResponse(f"Страница категории {ind_cat}")
 
 def arhive(request, year):
+    if year > 2025:
+        return redirect('cat_str', 'music')
     return HttpResponse(f"Архив за {year} год")
 
 def page_not_found(request, exception):
