@@ -2,14 +2,13 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 
 
-
-
 def index(request):
-    return HttpResponse("Главная страница сайта!")
+    return render(request, 'women\index.html')
 
 
 def categories(request, ind_cat):
     return HttpResponse(f"Страница категории {ind_cat}")
+
 
 def arhive(request, year):
     if year > 2025:
@@ -18,3 +17,6 @@ def arhive(request, year):
 
 def page_not_found(request, exception):
     return HttpResponseNotFound("Страница не найдена")
+
+def about(request):
+    return render(request, 'women/about.html')
