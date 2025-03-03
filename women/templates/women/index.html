@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Главная страница</title>
+        <title>{{ title }}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -12,6 +12,18 @@
     <body>
 
         <h1>Главная страница</h1>
+        {{ menu|join:' | '}}
+        {% for x in lst_news %}
+            {% if x.is_published %}
+                <h2>{{ x.title }}</h2>
+                <p>{{ x.content }}</p>
+                {% if not forloop.last %}
+                    <hr>
+                {% endif %}
+
+            {% endif %}
+        {% endfor %}
+
     </body>
 </html>
 

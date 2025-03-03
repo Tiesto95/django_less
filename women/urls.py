@@ -9,6 +9,6 @@ urlpatterns = [
     path('cats/<int:ind_cat>/', views.categories),
     path('cats/<str:ind_cat>/', views.categories, name='cat_str'),
     path('arhive/<year4:year>/', views.arhive),
-    path('about/', views.about, name='about')
+    path('news/', views.news, name="news_url")
 ]
 
