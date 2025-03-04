@@ -1,27 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ title }}</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-
-        <h1>{{ title }}</h1>
-        <ul>
-            <li><a href="{% url 'index' %}">Главная страница</a></li>
-            {%for x in menu %}
-
-                {% if not forloop.last %}<li>{% else %}<li class="last">{% endif %}
-                    <a href="{% url x.url_name %}">{{x.title}}</a></li>
-            {% endfor %}
-        </ul>
-
-
+{% block content %}
         {% for x in content %}
             {% if x.is_published %}
                 <h2>{{ x.title }}</h2>
@@ -33,7 +12,5 @@
 
             {% endif %}
         {% endfor %}
-
-    </body>
-</html>
+{% endblock %}
 
