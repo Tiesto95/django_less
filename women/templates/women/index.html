@@ -11,12 +11,22 @@
     </head>
     <body>
 
-        <h1>Главная страница</h1>
-        {{ menu|join:' | '}}
-        {% for x in lst_news %}
+        <h1>{{ title }}</h1>
+        <ul>
+            <li><a href="{% url 'index' %}">Главная страница</a></li>
+            {%for x in menu %}
+
+                {% if not forloop.last %}<li>{% else %}<li class="last">{% endif %}
+                    <a href="{% url x.url_name %}">{{x.title}}</a></li>
+            {% endfor %}
+        </ul>
+
+
+        {% for x in content %}
             {% if x.is_published %}
                 <h2>{{ x.title }}</h2>
                 <p>{{ x.content }}</p>
+                <a href="{% url 'post' x.id %}">Читать подробнее..</a>
                 {% if not forloop.last %}
                     <hr>
                 {% endif %}

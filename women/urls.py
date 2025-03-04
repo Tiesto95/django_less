@@ -5,10 +5,11 @@ from women import converters
 register_converter(converters.FourDigitYearConverter, 'year4')
  
 urlpatterns = [
-    path('', views.index),
-    path('cats/<int:ind_cat>/', views.categories),
-    path('cats/<str:ind_cat>/', views.categories, name='cat_str'),
-    path('arhive/<year4:year>/', views.arhive),
-    path('news/', views.news, name="news_url")
+    path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
+    path('addpage/', views.addpage, name='add_page'),
+    path('contact/', views.contact, name='contact'),
+    path('login/', views.login, name='login'),
+    path('post/<int:post_id>/', views.show_post, name='post'),
 ]
 
