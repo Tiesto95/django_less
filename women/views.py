@@ -16,11 +16,17 @@ lst_news =  [
             {'id': 3, 'title': 'Джулия Робертс', 'content': 'Биография Джулия Робертс', 'is_published': True},
         ]
 
+cats_db = [
+    {'id': 1, 'name': 'Актрисы'},
+    {'id': 2, 'name': 'Певицы'},
+    {'id': 3, 'name': 'Спортсменки'},
+]
 
 def index(request):
     data = {
         'menu' : menu,
         'posts': lst_news,
+        'cat_selected': 0,
         'title': 'Главная страница'
     }
     return render(request, 'women/index.html', data)
@@ -43,6 +49,14 @@ def login(request):
 
 def show_post(request, post_id):
     return HttpResponse(f"Пост с номером {post_id}")
+
+def show_category(request, cat_id):
+    data = {
+        'menu': menu,
+        'cat_selected': cat_id, 
+        'title': 'Страница категорий'
+    }
+    return render(request, 'women/index.html', data)
 
 def page_not_found(request, exception):
     return HttpResponseNotFound("Страница не найдена")
